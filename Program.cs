@@ -16,15 +16,20 @@ namespace employees
 
             for(int i = 0; i < n; i++)
             {
+                //Employee number
+                Console.WriteLine("Employee #{0} data: ", i + 1);
                 //Is a outsourced?
                 Console.Write("Outsourced? (y/n)? ");
                 char outSourced = char.Parse(Console.ReadLine());
                 //Name
+                Console.Write("Name: ");
                 string name = Console.ReadLine();
                 //Hours
+                Console.Write("Hours: ");
                 int hours = int.Parse(Console.ReadLine());
                 //Value per hour
-                double valuePerHour = double.Parse(Console.ReadLine());
+                Console.Write("Value per hour: ");
+                double valuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                 
                 //Declaring Employee variable
                 Employee employee;
@@ -33,7 +38,7 @@ namespace employees
                 {
                     //Pick the fourth value of the type
                     Console.Write("Additional charge: ");
-                    double additionalCharge = double.Parse(Console.ReadLine());
+                    double additionalCharge = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                     //Then add to the list
                     employee = new OutsourceEmployee(name, hours, valuePerHour, additionalCharge);
                 }
@@ -45,6 +50,13 @@ namespace employees
                 employeesList.Add(employee);
             }
             
+            //Resume
+            Console.WriteLine("-------------------");
+            Console.WriteLine("PAYMENTS: ");
+            foreach(Employee emp in employeesList)
+            {
+                Console.WriteLine(emp);
+            }
         }
     }
 }
