@@ -1,5 +1,5 @@
 using System;
-using employees.Entities;
+using System.Globalization;
 
 namespace employees.Entities
 {
@@ -16,7 +16,11 @@ namespace employees.Entities
         public override double Payment()
         {
             double payment = base.Payment();
-            return payment + payment * 1.1;
+            return payment + AdditionalCharge * 1.1;
+        }
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }
