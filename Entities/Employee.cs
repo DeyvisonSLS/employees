@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 namespace employees.Entities
 {
@@ -19,6 +20,11 @@ namespace employees.Entities
         public virtual double Payment()
         {
             return Hours * ValuePerHour;
+        }
+
+        public override string ToString()
+        {
+            return Name + " - $" + Payment().ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 }
